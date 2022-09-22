@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import proj1 from '../public/assets/projects/proj1.gif'
 import ProjectItem from './ProjectItem';
@@ -7,7 +5,6 @@ import proj2 from "../public/assets/projects/proj2.png"
 import proj4 from "../public/assets/projects/proj4.gif"
 import proj5 from "../public/assets/projects/proj6.gif"
 import ResearchProjs from './ResearchProjs';
-
 
 
 const Projects = () => {
