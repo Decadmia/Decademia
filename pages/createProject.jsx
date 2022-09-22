@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
 
-function createProject(projectUrl) {
+function CreateProject(projectUrl) {
     const [name, setName] = useState('');
     const [summary, setSummary] = useState('');
     const [clinicalStage, setclinicalStage] = useState('');
@@ -122,4 +122,4 @@ function createProject(projectUrl) {
     )
 }
 
-export default createProject
+export default CreateProject
