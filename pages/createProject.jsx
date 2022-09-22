@@ -2,50 +2,42 @@ import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
 
-function CreateProject(projectUrl) {
-    const [name, setName] = useState('');
-    const [summary, setSummary] = useState('');
-    const [clinicalStage, setclinicalStage] = useState('');
-    const [therapeuticArea, settherapeuticArea] = useState('');
-    const [patientStatus, setpatientStatus] = useState('');
-    const [country, setCountry] = useState('');
-
-    const handleSubmit = () => {
-        setName('');
-        setSummary('');
-        setclinicalStage('');
-        settherapeuticArea('');
-        setpatientStatus('');
-        setCountry('');
-    };
+function CreateProject() {
+    const [projectDetails, setprojectDetails] = useState({
+        name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
+        country: " "
+    });
+    let name, value;
+    const handleInputs = (e) => {
+        console.log(e);
+        name = e.target.name;
+        value = e.target.value;
+        setprojectDetails({ ...projectDetails, [name]: value })
+    }
 
     return (
 
         <div className=' absolute left-10 mt-20 right-5 m-auto pl-20 flex flex-col w-2/3  rounded-md decoration'>
             <h2 className='relative mb-3 hover:underline'>Create a new Project </h2>
-           
+
             <div className='mt-5 col-span-2 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                 <div className='relative flex flex-col'>
                     <h2 className='text-2xl text-slate-400 text-center font-thin'> <span className=' relative top-2 text-centre justify-center'> **</span>  This information is used to give investiors the brief overview of your project <span className='relative top-2 text-centre justify-center'> **</span> </h2>
                 </div>
                 <h2 className='mb-4 mt-10'> Basic Information </h2>
                 <div className='p-4'>
-                    <form
-                        onSubmit={handleSubmit}
-                        action='https://getform.io/f/08ebcd37-f5b5-45be-8c13-714f011ce060'
-                        method='POST'
-                    >
+                    <form >
 
                         <div className='flex flex-col'>
                             <label className='uppercase text-md text-slate-400 py-2'> Project Name * </label>
-                            
                             <input
                                 className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
                                 type='text'
                                 name='name'
-                                value={name}
+                                id='name'
+                                value={projectDetails.name}
                                 placeholder='Discovering Novel Autophagy Activation'
-                                onChange={(e) => setName(e.target.value)}
+                                onChange={handleInputs}
                             />
                         </div>
 
@@ -55,9 +47,10 @@ function CreateProject(projectUrl) {
                             <textarea
                                 className='border-2 rounded-lg p-3 border-gray-300'
                                 rows='6'
+                                id='summary'
                                 name='summary'
-                                value={summary}
-                                onChange={(e) => setMessage(e.target.value)}
+                                value={projectDetails.summary}
+                                onChange={handleInputs}
                             ></textarea>
                         </div>
 
@@ -66,50 +59,54 @@ function CreateProject(projectUrl) {
                             <input
                                 className='border-2 rounded-lg p-3 flex border-gray-300'
                                 type='text'
+                                id='clinicalStage'
                                 name='clinicalStage'
-                                value={clinicalStage}
+                                value={projectDetails.clinicalStage}
                                 placeholder='Please Select One'
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={handleInputs}
                             />
                         </div>
                         <div className='flex flex-col py-2'>
                             <label className='uppercase  text-slate-400 text-md py-2'>Therapeutic Area *</label>
                             <input
-                                className='border-2 rounded-lg p-3 flex border-gray-300'
+                                className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
                                 type='text'
-                                name='TherapeuticArea'
-                                value={therapeuticArea}
+                                name='therapeuticArea'
+                                id='therapeuticArea'
+                                value={projectDetails.therapeuticArea}
                                 placeholder='Select or search for areas...'
-                                onChange={(e) => setSubject(e.target.value)}
+                                onChange={handleInputs}
                             />
                         </div>
-                        
+
                         <div className='flex flex-col py-2'>
                             <label className='uppercase  text-slate-400 text-md py-2'>Patent Status *</label>
                             <input
-                                className='border-2 rounded-lg p-3 flex border-gray-300'
+                                className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
                                 type='text'
                                 name='PatientStatus'
-                                value={patientStatus}
+                                id='PatientStatus'
+                                value={projectDetails.PatientStatus}
                                 placeholder='Please select one'
-                                onChange={(e) => setSubject(e.target.value)}
+                                onChange={handleInputs}
                             />
                         </div>
 
                         <div className='flex flex-col py-2'>
                             <label className='uppercase  text-slate-400 text-md py-2'>Country *</label>
                             <input
-                                className='border-2 rounded-lg p-3 flex border-gray-300'
+                                className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
                                 type='text'
                                 name='Country'
-                                value={country}
+                                id='Country'
+                                value={projectDetails.Country}
                                 placeholder='Please select one'
-                                onChange={(e) => setSubject(e.target.value)}
+                                onChange={handleInputs}
                             />
                         </div>
 
 
-                        <button className='rounded-full p-4 text-gray-100 mt-4'>
+                        <button className='rounded-full p-4 text-gray-100 mt-4' onClick={handleInputs}>
                             save & continue
                         </button>
                     </form>

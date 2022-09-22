@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Projects from '../components/Projects'
-
+import ProjectDetails from "../components/ProjectDetails.jsx"
 
 
 
@@ -15,6 +15,7 @@ export default function Home() {
 
 
     <Projects />
+    <ProjectDetails />
 
     </div>
   )
