@@ -15,6 +15,7 @@ function CreateProject() {
         setprojectDetails({ ...projectDetails, [name]: value })
     }
 
+    
     return (
 
         <div className=' absolute left-10 mt-20 right-5 m-auto pl-20 flex flex-col w-2/3  rounded-md decoration'>
