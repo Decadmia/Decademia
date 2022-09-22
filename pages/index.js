@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Projects from '../components/Projects'
-import CreateProject from './CreateProject'
+
 
 
 
