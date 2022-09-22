@@ -6,7 +6,7 @@ import proj2 from "../public/assets/projects/proj2.png"
 const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt, fundedBy }) => {
     return (
         <div className='absolute left-20 mt-20 right-5 m-auto pl-20 flex flex-col w-full  rounded-md decoration'>
-            <h1 className='flex justify-start text-slate-700 uppercase text-wider text-gap-2'>Discovering Novel Autophagy Activators</h1>
+            <h1 className='flex justify-start mt-9 text-slate-700 uppercase text-wider text-gap-2'>Discovering Novel Autophagy Activators</h1>
             <h3 className='rounded-full  bg-blue-100 text-green-800 w-24 p-2 text-center mt-4 mb-2 '>type </h3>
 
             <div className=' justify-start items-center mt-4 flex flex-col  w-2/3'>
