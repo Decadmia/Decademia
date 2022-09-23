@@ -8,14 +8,14 @@ function CreateProject() {
         country: " "
     });
     let name, value;
-    const handleInputs = (e) => {
+    const handleInputs = async(e) => {
         console.log(e);
+        e.preventDefault();
         name = e.target.name;
         value = e.target.value;
         setprojectDetails({ ...projectDetails, [name]: value })
     }
 
-    
     return (
 
         <div className=' absolute left-10 mt-20 right-5 m-auto pl-20 flex flex-col w-2/3  rounded-md decoration'>
@@ -39,6 +39,7 @@ function CreateProject() {
                                 value={projectDetails.name}
                                 placeholder='Discovering Novel Autophagy Activation'
                                 onChange={handleInputs}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -52,6 +53,7 @@ function CreateProject() {
                                 name='summary'
                                 value={projectDetails.summary}
                                 onChange={handleInputs}
+                                autoComplete="off"
                             ></textarea>
                         </div>
 
@@ -65,6 +67,7 @@ function CreateProject() {
                                 value={projectDetails.clinicalStage}
                                 placeholder='Please Select One'
                                 onChange={handleInputs}
+                                autoComplete="off"
                             />
                         </div>
                         <div className='flex flex-col py-2'>
@@ -77,6 +80,7 @@ function CreateProject() {
                                 value={projectDetails.therapeuticArea}
                                 placeholder='Select or search for areas...'
                                 onChange={handleInputs}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -85,11 +89,12 @@ function CreateProject() {
                             <input
                                 className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
                                 type='text'
-                                name='PatientStatus'
-                                id='PatientStatus'
-                                value={projectDetails.PatientStatus}
+                                name='patientStatus'
+                                id='patientStatus'
+                                value={projectDetails.patientStatus}
                                 placeholder='Please select one'
                                 onChange={handleInputs}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -98,11 +103,12 @@ function CreateProject() {
                             <input
                                 className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
                                 type='text'
-                                name='Country'
-                                id='Country'
-                                value={projectDetails.Country}
+                                name='country'
+                                id='country'
+                                value={projectDetails.country}
                                 placeholder='Please select one'
                                 onChange={handleInputs}
+                                autoComplete="off"
                             />
                         </div>
 
