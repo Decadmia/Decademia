@@ -14,7 +14,7 @@ const Navbar = ({CreateProject, }) => {
 
   useEffect(() => {
     if (
-      router.asPath === '/CreateProject' 
+      router.asPath === '/createProject' 
     ) {
       setNavBg('#ecf0f3');
       setLinkColor('#ecf0f3');
