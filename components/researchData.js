@@ -1,9 +1,8 @@
-import {projectDetails} from "../pages/createProject"
-
-const researchData = {
-    name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
-    country: " "
+var UpadateValues = {}
+const ResearchData = async (props) => {
+UpadateValues = JSON.stringify(props)
+console.log(UpadateValues)
+return UpadateValues
 }
-console.log(researchData);
 
-export default researchData;
+export default ResearchData

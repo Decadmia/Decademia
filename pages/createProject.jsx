@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
-import researchData from "../components/researchData"
+import ResearchData from "../components/researchData"
 // import dynamic from 'next/dynamic'
 
 // const DynamicHeader = dynamic(() => import('../components/header'), {
 //     ssr: false,
 // })
-
+var projecDetailsValues = {}
 
 
 function CreateProject() {
@@ -25,29 +25,12 @@ function CreateProject() {
         name = e.target.name;
         value = e.target.value;
         setprojectDetails({ ...projectDetails, [name]: value })
-        Object.assign(projectDetails, researchData);
+        projecDetailsValues  = {...projectDetails,[name]:value};
     }
-
-
-    // const sendDetails = async(e) => {
-    //     e.preventDefault();
-
-    //     const { name, summary, clinicalStage, therapeuticArea, patientStatus,
-    //         country} = projectDetails;
-    // }
-
-    const research = {...projectDetails,[name]:value};
-
-   // research.addEventListener('submit', callbackFunction);
 
     function callbackFunction(event) {
         event.preventDefault();
-        const myresearchData = new FormData(event.target);
-        console.log(myresearchData);
-
-        const researchDataObj ={};
-        myresearchData.forEach((value, key) => (researchDataObj[key]=value));
-        console.log(researchDataObj);
+        ResearchData(projectDetails)
     }
 
     return (
@@ -147,7 +130,7 @@ function CreateProject() {
                         </div>
 
 
-                        <button className='bg-gradient-to-r from-[#5651e5] to-[#709dff]  rounded-full p-4 text-gray-900 mt-4' type="submit" onClick={handleInputs}>
+                        <button className='bg-gradient-to-r from-[#5651e5] to-[#709dff]  rounded-full p-4 text-gray-900 mt-4' type="submit" onClick={callbackFunction}>
                             save & continue
                         </button>
                     </form>
@@ -160,4 +143,5 @@ function CreateProject() {
     )
 }
 
-export default { CreateProject, projectDetails }
+
+export default CreateProject
