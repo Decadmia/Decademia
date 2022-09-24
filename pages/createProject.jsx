@@ -2,36 +2,42 @@ import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
 import ResearchData from "../components/researchData"
-// import dynamic from 'next/dynamic'
+import { Web3Storage} from 'web3.storage'
 
-// const DynamicHeader = dynamic(() => import('../components/header'), {
-//     ssr: false,
-// })
+
 var projecDetailsValues = {}
 
 
 function CreateProject() {
-
-
     const [projectDetails, setprojectDetails] = useState({
         name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
         country: " "
     });
     let name, value;
 
-
-    const handleInputs = async(e) => {
+    const handleInputs = async (e) => {
         e.preventDefault();
         name = e.target.name;
         value = e.target.value;
         setprojectDetails({ ...projectDetails, [name]: value })
-        projecDetailsValues  = {...projectDetails,[name]:value};
+        projecDetailsValues = { ...projectDetails, [name]: value };
+        
     }
 
-    function callbackFunction(event) {
+    async function callbackFunction(event) {
         event.preventDefault();
         ResearchData(projectDetails)
+        var contents = JSON.stringify(projectDetails);
+        var blob = new Blob([contents], { type: 'text/plain' });
+        var file = new File([blob], "foo.txt", { type: "text/plain" });
+
+        const token = (process.env.TOKEN);
+        const storage = new Web3Storage({ token });
+
+        var cid = await storage.put([file]);
+        console.log(cid);
     }
+
 
     return (
 
