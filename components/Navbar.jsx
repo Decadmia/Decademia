@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import UDomain from './UDomain';
 
 
 const Navbar = ({CreateProject, }) => {
@@ -63,20 +64,19 @@ const Navbar = ({CreateProject, }) => {
         </div>
        
        
-        <div className='grid md:grid-cols-2 absolute right-4 text-center bottom-5 '>
-          <Link href='#/'>
+        <div className='grid md:grid-cols-1 absolute ml-2 right-2 text-center bottom-5 '>
+          {/* <Link href='#/'>
             <div className=' text-sm uppercase '>
               <button className='p-2  shadow-none text-gray-300 underline-offset-auto'>
                 Connect Wallet
               </button>
             </div>
           </Link>
-        
+         */}
           <Link href='#/'>
             <div className=' text-sm uppercase '>
-              <button className='p-2  shadow-none text-gray-300 underline-offset-auto'>
-                Unstoppable
-              </button>
+            <UDomain />
+              
             </div>
           </Link>
         </div>

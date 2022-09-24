@@ -72,7 +72,7 @@ const Projects = () => {
 
           <ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj2}
+            backgroundImg={proj1}
             projectUrl='https://www.dreamdateworld.com/'
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
@@ -93,14 +93,14 @@ const Projects = () => {
             fundedBy="Decademia"
           /><ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj5}
+            backgroundImg={proj1}
             projectUrl='https://www.dreamdateworld.com/'
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
             fundedBy="Decademia"
           /><ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj5}
+            backgroundImg={proj4}
             projectUrl='https://www.dreamdateworld.com/'
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
