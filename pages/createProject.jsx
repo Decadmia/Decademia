@@ -7,11 +7,12 @@ import { Web3Storage} from 'web3.storage'
 
 var projecDetailsValues = {}
 
+var imageData = {}
 
 function CreateProject() {
     const [projectDetails, setprojectDetails] = useState({
         name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
-        country: " "
+        country: " ", image: " "
     });
     let name, value;
 
@@ -21,9 +22,16 @@ function CreateProject() {
         value = e.target.value;
         setprojectDetails({ ...projectDetails, [name]: value })
         projecDetailsValues = { ...projectDetails, [name]: value };
-        
+         
     }
 
+    const fileselectedhandler = e => {
+        image = (e.target.files[0]);
+        console.log(image);
+        // console.log(imageData); 
+    }
+
+   
     async function callbackFunction(event) {
         event.preventDefault();
         ResearchData(projectDetails)
@@ -31,11 +39,13 @@ function CreateProject() {
         var blob = new Blob([contents], { type: 'text/plain' });
         var file = new File([blob], "foo.txt", { type: "text/plain" });
 
+
         const token = (process.env.TOKEN);
         const storage = new Web3Storage({ token });
 
         var cid = await storage.put([file]);
         console.log(cid);
+    
     }
 
 
@@ -134,9 +144,24 @@ function CreateProject() {
                                 autoComplete="off"
                             />
                         </div>
+                        <div className='flex flex-col py-2'>
+                            <label htmlFor='image' className='uppercase  text-slate-400 text-md py-2'>Choose a file </label>
+                            <input
+                                className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
+                                type='file'
+                                name='image'
+                                id='image'
+                                // value={projectDetails.country}
+                                // placeholder='Please select one'
+                                onChange={fileselectedhandler}
+                                autoComplete="off"
+                            />
+                           
+                        </div>
+                        
+                         
 
-
-                        <button className='bg-gradient-to-r from-[#5651e5] to-[#709dff]  rounded-full p-4 text-gray-900 mt-4' type="submit" onClick={callbackFunction}>
+                        <button className='bg-gradient-to-r from-[#a200d6] to-[#709dff]  rounded-full p-4 text-gray-900 mt-4' type="submit" onClick={callbackFunction}>
                             save & continue
                         </button>
                     </form>
