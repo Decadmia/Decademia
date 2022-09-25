@@ -24,6 +24,11 @@ const Navbar = ({CreateProject, }) => {
       setNavBg('#ecf0f3');
       setLinkColor('#ecf0f3');
     }
+
+    detectEthereumProvider().then((provider) => {
+      provider.on("accountsChanged", accountChangeHandler);
+      provider.on("chainChanged", chainChangedHandler);
+    });
   }, [router]);
 
   const handleNav = () => {
@@ -45,11 +50,6 @@ const Navbar = ({CreateProject, }) => {
     var returnValue = await ConnectWalletHandler();
     setConnectWallet(returnValue[0]);
   }
-
-  detectEthereumProvider().then((provider) => {
-    provider.on("accountsChanged", accountChangeHandler);
-    provider.on("chainChanged", chainChangedHandler);
-  });
   
   return (
     <div
