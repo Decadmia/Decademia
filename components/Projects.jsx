@@ -9,7 +9,7 @@ import ResearchProjs from './ResearchProjs';
 import { useState } from 'react';
 import logo from "../public/assets/decademia.png"
 import Image from 'next/image';
-
+import Link from 'next/link'
 
 const Projects = () => {
     const [prjectData, setProjectData] = useState();
@@ -22,10 +22,13 @@ const Projects = () => {
       <div className=' mx-auto  flex justify-center items-center'>
        
           <Image src={logo}></Image>
+        
+
       </div>
       <div className='relative mx-auto mt-8 flex justify-center p-6 items-center'>
-       
+        <a href="https://discord.gg/e8hTg4d9Fc">
         <button className='p-3'> Join Our Community</button>
+        </a>
       </div>
       <div className='mx-auto  flex justify-center items-center'>
         <h2>Discover Research Projects </h2>
