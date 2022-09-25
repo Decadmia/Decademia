@@ -110,6 +110,7 @@ function CreateProject() {
 
         var cid = await storage.put([file]);
         console.log(cid);
+        alert(`Project Details stored in IPFS CID: ${cid}`)
 
     }
 

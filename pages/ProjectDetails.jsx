@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from "react"
 import Link from 'next/link'
+import createNewFlow from "../components/CreateFlow"
+import {ConnectWalletHandler} from "../component/Wallet"
 import proj2 from "../public/assets/projects/proj2.png"
 import { Web3Storage} from 'web3.storage'
 
@@ -9,6 +11,7 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
         name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
         country: " ", image: " "
     });
+    const [walletAddress, setWalletAddress] = useState(null);
     useEffect(() => {
         console.log("useEffect called")
         const token =process.env.NEXT_PUBLIC_TOKEN;
@@ -24,6 +27,12 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
             })
         })
     }, []);
+
+    const onButtonClick = async () => {
+        var res = await ConnectWalletHandler()
+        await createNewFlow(res[0], 1)
+        alert(`${res[0]} getting DECx tokens`)
+    }
 
     return (
         <div className='absolute left-20 mt-20 right-5 m-auto pl-20 flex flex-col w-full  rounded-md decoration'>
@@ -84,7 +93,7 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
                 </p>
 
             </div>
-            <button className='w-2/5 mt-2 mb-5 p-2 bg-gradient-to-r from-[#a200d6] to-[#467df3]' > Contribute </button>
+            <button className='w-2/5 mt-2 mb-5 p-2 bg-gradient-to-r from-[#a200d6] to-[#467df3]' onClick={onButtonClick}> Contribute </button>
 
             <hr className='w-2/3' />
 
