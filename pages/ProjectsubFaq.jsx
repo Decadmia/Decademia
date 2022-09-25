@@ -22,46 +22,46 @@ const ProjectsubFaq = () => {
             <div className=' m-10 w-full p-10 gap-2 grid md:grid-cols-1 text-white bg-gradient-to-r from-[#a200d6] to-[#467df3] rounded-md'>
                 <div className='m-2 p-2'>
                     <div className='flex items-center justify-start mt-5'>
-                        <p className='text-2xl mb-2 flex justify-start'>Who can apply? </p>
+                        <p className='text-2xl mb-2 flex justify-start'>Q1: If I upload my research data on the platform, who can access it? </p>
                     </div>
                     <div>
-                        <p>Projects must be focused on making an impact on human health- and/or life-span by targeting the ageing process directly, or by targeting age-related diseases. Age-related diseases include cardiovascular disease, cancer, and neurodegenerative diseases. Projects with the potential of leading to new therapeutics, interventions, diagnostics, and biomarkers will be prioritised.</p>
+                        <p>You are initially the only party who can access and modify the data. Once you sell or give access/royalty rights to any other parties they are available to view the data.</p>
                     </div>
                 </div>
 
                 <div className='m-2 p-2 '>
                     <div className='flex items-center justify-start mt-5'>
-                        <p className='text-2xl mb-2 flex justify-start'>What type of project do you fund? </p>
+                        <p className='text-2xl mb-2 flex justify-start'>Q2: Can I sign a confidentiality agreement with Decademia?</p>
                     </div>
                     <div>
-                        <p>Projects must be focused on making an impact on human health- and/or life-span by targeting the ageing process directly, or by targeting age-related diseases. Age-related diseases include cardiovascular disease, cancer, and neurodegenerative diseases. Projects with the potential of leading to new therapeutics, interventions, diagnostics, and biomarkers will be prioritised.</p>
+                        <p>Yes, we are happy to sign a confidentiality agreement.</p>
                     </div>
                 </div>
 
                 <div className='m-2 p-2 '>
                     <div className='flex items-center justify-start mt-5'>
-                        <p className='text-2xl mb-2 flex justify-start'>What is the application structure? </p>
+                        <p className='text-2xl mb-2 flex justify-start'>Q3: What interactions I can have with the investors and researchers on your platform?</p>
                     </div>
                     <div>
-                        <p>Please send us a 500-1000 word proposal for your project or company. Make sure you include: goal/market, approach/product, methods/technology used, team, funding needed, and project timeline.</p>
+                        <p>Investors and other interested parties such as collaborators are able to reach out to you if they are interested in your research project. By providing your preferred path of communication (e.g. email, phone), interested parties can directly get in touch with you.</p>
                     </div>
                 </div>
 
                 <div className='m-2 p-2 '>
                     <div className='flex items-center justify-start mt-5'>
-                        <p className='text-2xl mb-2 flex justify-start'>Who owns the IP from funded project? </p>
+                        <p className='text-2xl mb-2 flex justify-start'>Q4: How will the investor be convinced to acquire my data if it is not visible? </p>
                     </div>
                     <div>
-                        <p>The VitaDAO community owns the intellectual property that results from the projects that it funds, either directly or in the form of an exclusive license. However, this can be negotiated on a project basis. The researcher and other third parties can maintain partial ownership of IP, depending on the funding amounts and nature of the project. Usually, VitaDAO finances projects and acquires intellectual property through sponsored research agreements that are negotiated with the commercialisation office of a host university.</p>
+                        <p> Data can be partially and sequentially shared given a non-disclosure agreement is signed with the interested party. Decademia is happy to support you in that process.</p>
                     </div>
                 </div>
 
                 <div className='m-2 p-2 '>
                     <div className='flex items-center justify-start mt-5'>
-                        <p className='text-2xl mb-2 flex justify-start'>What project stage do you fund? </p>
+                        <p className='text-2xl mb-2 flex justify-start'>Q5: When a party purchases my IP-NFT can they resell it for higher prices?How will I benefit from this? </p>
                     </div>
                     <div>
-                        <p>We have a preference for early-stage, pre-patent projects that are attempting to bridge “the valley of death”​​, traditionally thought of as the gap between academic research and industrial commercialisation. However, we are open to receiving applications for projects at any stage, and aim to fund projects based on potential over maturity.</p>
+                        <p>Yes, the IP-NFT can be resold by your investor at any point in time.</p>
                     </div>
                 </div>
 

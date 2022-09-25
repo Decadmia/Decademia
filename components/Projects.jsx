@@ -1,12 +1,14 @@
 import React from 'react';
-import proj1 from '../public/assets/projects/proj1.gif'
+import proj1 from '../public/assets/projects/proj1.jpeg'
+import proj2 from '../public/assets/projects/proj2.png'
 import ProjectItem from './ProjectItem';
-import proj2 from "../public/assets/projects/proj2.png"
+import proj3 from "../public/assets/projects/proj3.jpeg"
 import proj4 from "../public/assets/projects/proj4.gif"
 import proj5 from "../public/assets/projects/proj6.gif"
 import ResearchProjs from './ResearchProjs';
 import { useState } from 'react';
-
+import logo from "../public/assets/decademia.png"
+import Image from 'next/image';
 
 
 const Projects = () => {
@@ -17,8 +19,13 @@ const Projects = () => {
       <div className=''>
         <h2>.</h2>
       </div>
-      <div className='relative mx-auto mt-8 flex justify-center items-center'>
-        <h1>Decademia </h1>
+      <div className=' mx-auto  flex justify-center items-center'>
+       
+          <Image src={logo}></Image>
+      </div>
+      <div className='relative mx-auto mt-8 flex justify-center p-6 items-center'>
+       
+        <button className='p-3'> Join Our Community</button>
       </div>
       <div className='mx-auto  flex justify-center items-center'>
         <h2>Discover Research Projects </h2>
@@ -68,46 +75,44 @@ const Projects = () => {
           <ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj1}
-           
-            projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$20,000"
-            fundedBy="Decademia"
+            stage="Early Stage"
+            projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. Dysfunctional autophagy. "
+            fundedAmt="$27,000"
+            fundedBy="Amount Request"
           />
 
           <ProjectItem
-            title='Discovering Novel Autophagy Activators Ageing'
+            title='Discovery of novel mitophagy activators for Alzheimer´s disease'
             backgroundImg={proj4}
-            
-            projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
+            stage="Early Stage"
+            projDesc="Turning up mitophagy via pharmaceutical approaches could improve brain health" 
             fundedAmt="$20,000"
-            fundedBy="Decademia"
+            fundedBy="Amount Request"
           /><ProjectItem
-            title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj1}
-            
-            projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$23,576"
-            fundedBy="Decademia"
+            title='Universal Coronavirus mRNA Vaccine (UCV-mRNA)'
+            backgroundImg={proj5}
+            stage="Prclinical"
+            projDesc="A functionally biosimilar mRNA prophylactic or therapeutic vaccine, or vaccine booster, to enable sustained immunity to current and future SARS-CoV-2 variants. "
+            fundedAmt="$23,000"
+            fundedBy="Amount Request"
           /><ProjectItem
-            title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj4}
-
+            title='Autoimmune Disease Treatment Without Immune Suppression'
+            backgroundImg={proj3}
+            stage="Preclinical"
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$23,576"
-            fundedBy="Decademia"
+            fundedAmt="$32,000"
+            fundedBy="Amount Request"
           /><ProjectItem
-            title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj1}
-
-            projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$23,576"
-            fundedBy="Decademia"
-          /><ProjectItem
-            title='Discovering Novel Autophagy Activators Ageing'
-            backgroundImg={proj4}
-            projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$23,576"
-            fundedBy="Decademia"
+            title='Discovering a novel, alternative psilocybin production pathway'
+            backgroundImg={proj2}
+            stage="Research"
+            projDesc="Mental Health
+Inflammation
+Neuroscience/Neurology
+Regenerative medicine
+Ageing "
+            fundedAmt="$25,000"
+            fundedBy="Amount Request"
           />
         </div>
 
