@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import UDomain from './UDomain';
 import Image from 'next/image';
+import {ConnectWalletHandler} from "./Wallet"
 
 const Navbar = ({CreateProject, }) => {
-
+  const [connectWallet, setConnectWallet] = useState("Connect Wallet");
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('#ecf0f3');
@@ -38,6 +39,11 @@ const Navbar = ({CreateProject, }) => {
     };
     window.addEventListener('scroll', handleShadow);
   }, []);
+
+  async function connectWalletButton() {
+    var returnValue = await ConnectWalletHandler();
+    setConnectWallet(returnValue[0]);
+  }
   
   return (
     <div
@@ -71,9 +77,8 @@ const Navbar = ({CreateProject, }) => {
         <div className='grid md:grid-cols-2 absolute ml-2 right-2 text-center bottom-5 '>
           <Link href='#/'>
             <div className=' text-sm uppercase '>
-              <button className='p-2  shadow-none text-white underline-offset-auto' >
-                  Connect Wallet
-
+              <button className='p-2  shadow-none text-white underline-offset-auto' onClick={connectWalletButton}>
+                {connectWallet}
               </button>
 
              

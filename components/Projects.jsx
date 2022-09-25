@@ -61,51 +61,50 @@ const Projects = () => {
         <div className='p-2'>
           <h1 className='text-xl ]'>
           </h1>
-          <h2 className='py-4 tracking-widest  text-[#005071]'> Funded  Projects</h2>
+          <h2 className='py-4 tracking-widest  text-[#005071]'>  Projects</h2>
         </div>
 
         <div className='grid md:grid-cols-3 w-full  gap-6'>
           <ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj1}
-            projectUrl='https://www.dreamdateworld.com/'
+           
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$23,576"
+            fundedAmt="$20,000"
             fundedBy="Decademia"
           />
 
           <ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj4}
-            projectUrl='https://www.dreamdateworld.com/'
+            
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
-            fundedAmt="$23,576"
+            fundedAmt="$20,000"
             fundedBy="Decademia"
           /><ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj1}
-            projectUrl='https://www.dreamdateworld.com/'
+            
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
             fundedBy="Decademia"
           /><ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj4}
-            projectUrl='https://www.dreamdateworld.com/'
+
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
             fundedBy="Decademia"
           /><ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj1}
-            projectUrl='https://www.dreamdateworld.com/'
+
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
             fundedBy="Decademia"
           /><ProjectItem
             title='Discovering Novel Autophagy Activators Ageing'
             backgroundImg={proj4}
-            projectUrl='https://www.dreamdateworld.com/'
             projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
             fundedAmt="$23,576"
             fundedBy="Decademia"
@@ -128,6 +127,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="USA"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -136,6 +136,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="UAE"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -144,6 +145,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="JAPAN"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -152,6 +154,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="CHINA"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -160,6 +163,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="RUSSIA"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -168,6 +172,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="UK"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -176,6 +181,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="FRANCE"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -184,6 +190,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="SPAIN"
               fundedAmt="$ 23,890"
             />
             <ResearchProjs
@@ -192,6 +199,7 @@ const Projects = () => {
               type="Liver Disease"
               projDesc="Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional. "
               researcher="Nike Ainsile"
+              nationality="KORIA"
               fundedAmt="$ 23,890"
             />
 
