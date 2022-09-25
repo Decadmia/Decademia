@@ -37,6 +37,7 @@ const Projects = () => {
       <div className='max-w-[1240px] mx-auto px-2 py-16'>
         <div className='flex'>
           <div className='flex m-8 p-2  w-1/3'>
+            
             <input
               className=' border-2 rounded-full p-2 flex border-gray-300 '
               type='text'
@@ -45,25 +46,21 @@ const Projects = () => {
             />
           </div>
           <div className='relative left-8 flex  m-5 p-2  w-1/5'>
-
-            <input
-              className='border-2 rounded-full p-3 m-3 flex border-gray-300'
-              type='text'
-              name='Sort by Newest first'
-              value='Sort by Newest first'
-              
-            />
-            <input
-              className='border-2 rounded-full p-3 m-3 flex border-gray-300'
-              type='text'
-              name='All Therapeutic Areas'
-              value="All Therapeutic Areas"
-            /> <input
-              className='border-2 rounded-full p-3 m-3 flex border-gray-300 box-decoration-none'
-              type='text'
-              name='All Stages'
-              value="All Stages"
-            />
+          {/* dropdown1 */}
+          <select className='border-2 rounded-full p-3 m-3 flex border-gray-300'>
+          <option value="Sort by Newest first">Sort by Newest first</option>      
+          <option value="Sort by Clinical Stage">Sort by Clinical Stage</option>
+          </select>
+            {/* dropdown2 */}
+          <select className='border-2 rounded-full p-3 m-3 flex border-gray-300'>
+          <option value="Sort by Newest first">Sort by Newest first</option>
+          <option value="Sort by Clinical Stage">Sort by Clinical Stage</option>
+          </select>
+          {/* dropdown3 */}
+          <select className='border-2 rounded-full p-3 m-3 flex border-gray-300'>
+          <option value="Sort by Newest first">Sort by Newest first</option>
+          <option value="Sort by Clinical Stage">Sort by Clinical Stage</option>
+          </select>
 
           </div>
         </div>
