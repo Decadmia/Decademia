@@ -2,16 +2,16 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import UDomain from './UDomain';
-
+import Image from 'next/image';
+import {ConnectWalletHandler} from "./Wallet"
 
 const Navbar = ({CreateProject, }) => {
+  const [connectWallet, setConnectWallet] = useState("Connect Wallet");
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('#ecf0f3');
   const [linkColor, setLinkColor] = useState('#ecf0f3');
   const router = useRouter();
-
-   
 
   useEffect(() => {
     if (
@@ -40,8 +40,11 @@ const Navbar = ({CreateProject, }) => {
     window.addEventListener('scroll', handleShadow);
   }, []);
 
+  async function connectWalletButton() {
+    var returnValue = await ConnectWalletHandler();
+    setConnectWallet(returnValue[0]);
+  }
   
-
   return (
     <div
       style={{ backgroundColor: `${navBg}` }}
@@ -52,27 +55,40 @@ const Navbar = ({CreateProject, }) => {
       }
     >
       <div className='  items-center'>
-        <div className='relative  top-6   mx-10  items-center uppercase  w-full  '>
-          <ul style={{ color: `${linkColor}` }} className=' hidden md:flex'>
+       
+        <div className='absolute   mx-10  items-center uppercase  w-full  '>
+         
+          <div className='relative top-6     mx-10  items-center uppercase  w-full '>
+          
+          
+          <ul style={{ color: `${linkColor}` }} className='justify-start grid-cols-3 hidden md:flex'>
+
             <Link href='/'>
-              <li className='ml-10 text-md text-gray-900 uppercase hover:border-b'>Discover</li>
+              <li className='ml-10 text-xl text-gray-900 uppercase hover:border-b'>Discover</li>
             </Link>
             <Link  href='/createProject'>
-              <li className='ml-10 text-md  text-gray-900 uppercase hover:border-b'>Create Project</li>
+              <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Create Project</li>
+            </Link>
+            
+            <Link  href='/createProject'>
+              <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Documentation </li>
             </Link>
           </ul>
+          </div>
+
         </div>
-       
-       
-        <div className='grid md:grid-cols-1 absolute ml-2 right-2 text-center bottom-5 '>
-          {/* <Link href='#/'>
+              
+        <div className='grid md:grid-cols-2 absolute ml-2 right-2 text-center bottom-5 '>
+          <Link href='#/'>
             <div className=' text-sm uppercase '>
-              <button className='p-2  shadow-none text-gray-300 underline-offset-auto'>
-                Connect Wallet
+              <button className='p-2  shadow-none text-white underline-offset-auto' onClick={connectWalletButton}>
+                {connectWallet}
               </button>
+
+             
             </div>
           </Link>
-         */}
+        
           <Link href='#/'>
             <div className=' text-sm uppercase '>
             <UDomain />
