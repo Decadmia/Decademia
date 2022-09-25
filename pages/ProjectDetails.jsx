@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React, { useEffect, useState } from "react"
 import Link from 'next/link'
 import createNewFlow from "../components/CreateFlow"
-import {ConnectWalletHandler} from "../component/Wallet"
 import proj2 from "../public/assets/projects/proj2.png"
 import { Web3Storage} from 'web3.storage'
 
@@ -29,8 +28,8 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
     }, []);
 
     const onButtonClick = async () => {
-        var res = await ConnectWalletHandler()
-        await createNewFlow(res[0], 1)
+        var res = ["0x0000000000000000000000000000000000000000", "0x0"]
+        // await createNewFlow(res[0], 1)
         alert(`${res[0]} getting DECx tokens`)
     }
 
