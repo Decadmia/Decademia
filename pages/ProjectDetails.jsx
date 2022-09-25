@@ -1,16 +1,37 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from "react"
 import Link from 'next/link'
 import proj2 from "../public/assets/projects/proj2.png"
+import { Web3Storage} from 'web3.storage'
 
 const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt, fundedBy }) => {
+    const [projectDetails, setProjectDetails] = useState({
+        name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
+        country: " ", image: " "
+    });
+    useEffect(() => {
+        console.log("useEffect called")
+        const token =process.env.NEXT_PUBLIC_TOKEN;
+        const storage = new Web3Storage({ token });
+        storage.get("bafybeiah5cozuopztkbllbjvfusbv5nnsymfwqke6xpuy4nerwsf7dmoga").then((res)=>{
+            console.log("get called")
+            res.files().then((files)=>{
+                let reader = new FileReader();
+                reader.readAsText(files[0]);
+                reader.onload = function() {
+                setProjectDetails(JSON.parse(reader.result));
+            };
+            })
+        })
+    }, []);
+
     return (
         <div className='absolute left-20 mt-20 right-5 m-auto pl-20 flex flex-col w-full  rounded-md decoration'>
-            <h1 className='flex justify-start mt-9 text-slate-700 uppercase text-wider text-gap-2'>Discovering Novel Autophagy Activators</h1>
-            <h3 className='rounded-full  bg-blue-100 text-green-800 w-24 p-2 text-center mt-4 mb-2 '>type </h3>
+            <h1 className='flex justify-start mt-9 text-slate-700 uppercase text-wider text-gap-2'>{projectDetails.name}</h1>
+            <h3 className='rounded-full  bg-blue-100 text-green-800 w-2/3 p-2 text-center mt-4 mb-2 '>{projectDetails.clinicalStage} </h3>
 
             <div className=' justify-start items-center mt-4 flex flex-col  w-2/3'>
-                <p className='text-xl mt-2 text-slate-400 tracking-wide mb-2'> Ageing is associated with the decline in the capacity of the autophagy pathway to degrade dysfunctional and damaging cellular components, such as protein aggregates and mitochondria. Dysfunctional autophagy, in turn, undermines other cellular functions including DNA repair, metabolism and survival. Therefore, activation of autophagy is considered a promising therapeutic approach to combat ageing and age-related diseases.</p>
+                <p className='text-xl mt-2 text-slate-400 tracking-wide mb-2'> {projectDetails.summary}</p>
                 <br />
             </div>
 

@@ -105,7 +105,7 @@ function CreateProject() {
         var file = new File([blob], "foo.txt", { type: "text/plain" });
 
 
-        const token = (process.env.NEXT_PUBLIC_TOKEN);
+        const token = process.env.NEXT_PUBLIC_TOKEN;
         const storage = new Web3Storage({ token });
 
         var cid = await storage.put([file]);

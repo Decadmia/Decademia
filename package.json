@@ -14,6 +14,8 @@
     "@portis/web3": "^4.0.7",
     "@uauth/js": "^2.4.0",
     "@walletconnect/web3-provider": "^1.8.0",
+    "@openzeppelin/contracts": "^4.7.3",
+    "hardhat": "^2.11.2",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
