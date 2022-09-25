@@ -69,6 +69,10 @@ const Navbar = ({CreateProject, }) => {
             <Link  href='/createProject'>
               <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Create Project</li>
             </Link>
+            
+            <Link  href='/createProject'>
+              <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Documentation </li>
+            </Link>
           </ul>
           </div>
 

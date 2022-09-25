@@ -84,6 +84,8 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
                 </p>
 
             </div>
+            <button className='w-2/5 mt-2 mb-5 p-2 bg-gradient-to-r from-[#a200d6] to-[#467df3]' > Contribute </button>
+
             <hr className='w-2/3' />
 
 

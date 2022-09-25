@@ -28,7 +28,7 @@ html {
   }
 
   button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-cyan-400 text-white
+    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-purple-800 text-white
     
   }
   
