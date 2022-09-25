@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import ResearchData from "../components/researchData"
 import { Web3Storage } from 'web3.storage'
-import Nftmint from "../components/Nftmint"
 import { useRef } from 'react';
 
 var projecDetailsValues = {}
