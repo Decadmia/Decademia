@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import UDomain from './UDomain';
 import Image from 'next/image';
-import {ConnectWalletHandler} from "./Wallet"
+import {ConnectWalletHandler, accountChangeHandler, chainChangedHandler} from "./Wallet"
+import detectEthereumProvider from '@metamask/detect-provider';
 
 const Navbar = ({CreateProject, }) => {
   const [connectWallet, setConnectWallet] = useState("Connect Wallet");
@@ -44,6 +45,11 @@ const Navbar = ({CreateProject, }) => {
     var returnValue = await ConnectWalletHandler();
     setConnectWallet(returnValue[0]);
   }
+
+  detectEthereumProvider().then((provider) => {
+    provider.on("accountsChanged", accountChangeHandler);
+    provider.on("chainChanged", chainChangedHandler);
+  });
   
   return (
     <div
