@@ -7,7 +7,7 @@ export const checkCorrectNetwork = async () => {
         try {
             await provider.request({
                 method: "wallet_switchEthereumChain",
-                params: [{ chainId: ethers.utils.hexValue(parseInt(process.env.REACT_APP_CHAIN_ID)) }],
+                params: [{ chainId: ethers.utils.hexValue(parseInt(process.env.NEXT_PUBLIC_CHAIN_ID)) }],
             });
         } catch (err) {
             if (err.code === 4902) {
@@ -15,10 +15,10 @@ export const checkCorrectNetwork = async () => {
                     method: "wallet_addEthereumChain",
                     params: [
                         {
-                            chainName: "Ethereum Mainnet",
-                            chainId: ethers.utils.hexValue(parseInt(process.env.REACT_APP_CHAIN_ID)),
-                            nativeCurrency: { name: "ETH", decimals: 18, symbol: "ETH" },
-                            rpcUrls: ["https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
+                            chainName: "Polygon Mumbai",
+                            chainId: ethers.utils.hexValue(parseInt(process.env.NEXT_PUBLIC_CHAIN_ID)),
+                            nativeCurrency: { name: "MATIC", decimals: 18, symbol: "MATIC" },
+                            rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
                         },
                     ],
                 });
