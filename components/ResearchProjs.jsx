@@ -5,7 +5,7 @@ import Link from 'next/link'
 const ResearchProjs = ({ heading, title, type, researcher, projDesc, fundedAmt, fundedBy }) => {
     return (
         <div className='items-center justify-center cursor-pointer w-full shadow-xl shadow-gray-400 rounded-lg p-3 group '>
-            <h6 className='flex justify-start text-gray-400 uppercase'> {heading}</h6>
+            <p className='flex justify-start text-gray-400 uppercase'> {heading}</p>
             <div className=' justify-start '>
                 <h2 className='text-2xl mt-2 border-l justify-start text-gray-900 tracking-wider hover:underline '>{title}</h2>
             </div>

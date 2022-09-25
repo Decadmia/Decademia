@@ -10,20 +10,25 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@portis/web3": "^4.0.7",
     "@uauth/js": "^2.4.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
+    "@types/react": "^18.0.21",
     "autoprefixer": "^10.4.7",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "ethers": "^5.6.9",
     "minimist": "^1.2.5",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.2",
-    "web3.storage": "^3.1.0"
+    "typescript": "^4.8.3",
+    "web3.storage": "^3.1.0",
+    "web3modal": "^1.9.8"
   },
   "author": "Vishal Pachpor",
   "license": "(Apache-2.0 AND MIT)"

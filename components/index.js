@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Projects from '../components/Projects'
+import Faq from './Faq'
+
 
 
 export default function Home() {
@@ -11,6 +13,7 @@ export default function Home() {
         <link rel="icon" href="/fav.png" />
       </Head>
       <Projects />
+      <Faq />
 
     </div>
   )

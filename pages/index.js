@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Faq from "../components/Faq"
+
 import Projects from '../components/Projects'
 
 
@@ -9,12 +11,13 @@ export default function Home() {
     <div>
       <Head>
         <title>Decademia</title>
-        <meta name="description" content="I’m a Blockchain developer specializing in building (and occasionally designing) exceptional digital experiences." />
-        <link rel="icon" href="/fav.png" />
+        <meta name="description" content="Invest in biopharma researchers and their work" />
+        <link rel="icon" href="../public/assets/declogo.png" />
       </Head>
 
 
     <Projects />
+    <Faq />
 
 
     </div>

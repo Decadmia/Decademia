@@ -40,7 +40,7 @@ function UDomain() {
 
     return (
         <>
-            <button className="p-2 ml-2 shadow-none text-gray-300 underline-offset-auto" onClick={log}>{Uauth != null ? Uauth["sub"] : "Login with UNSD"}</button>
+            <button className="p-2 ml-2 shadow-none text-white underline-offset-auto " onClick={log}>{Uauth != null ? Uauth["sub"] : "Login with UNSD"}</button>
         </>
     )
 }

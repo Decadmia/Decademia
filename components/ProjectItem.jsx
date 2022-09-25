@@ -15,7 +15,7 @@ const ProjectItem = ({ title, backgroundImg, projectUrl, projDesc, fundedAmt, fu
         <p className='text-xl mt-2 text-slate-400 tracking-wide '>{projDesc}</p>
         <br />
         <Link href="/ProjectDetails">
-          <button className="text-center py-3 w-full rounded-lg  text-gray-700 font-bold text-xl cursor-pointer">
+          <button className="text-center py-3 w-full rounded-lg  text-white font-bold text-xl cursor-pointe hover:text-white-400">
             More Info
           </button>
         </Link>
