@@ -40,7 +40,7 @@ address public owner;
 uint256 public projectNum;
 bool public contractPaused;
 address public EPNS_COMM_ADDRESS = 0xb3971BCef2D791bc4027BbfedFb47319A4AAaaAa;
-address public USDT_CONTRACT_ADDRESS = 0xA02f6adc7926efeBBd59Fd43A84f4E0c0c91e832;
+address public USDT_CONTRACT_ADDRESS = 0xd9145CCE52D386f254917e481eB44e9943F39138;
 
 constructor() {
     owner = msg.sender;
@@ -61,6 +61,28 @@ mapping(address => uint256[]) public investorIDtoInvestedProjects;
         projectOwnerToProjectIDs[msg.sender].push(projectNum);
         projectNum++;
 
+        IPUSHCommInterface(EPNS_COMM_ADDRESS).sendNotification(
+    0xd35323d229318e6dCfFE4359d863b2f5453DF965, // from channel - recommended to set channel via dApp and put it's value -> then once contract is deployed, go back and add the contract address as delegate for your channel
+    address(this), // to recipient, put address(this) in case you want Broadcast or Subset. For Targetted put the address to which you want to send
+    bytes(
+        string(
+            // We are passing identity here: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+            abi.encodePacked(
+                "0", // this is notification identity: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+                "+", // segregator
+                "1", // this is payload type: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/payload (1, 3 or 4) = (Broadcast, targetted or subset)
+                "+", // segregator
+                "New Project Added", // this is notificaiton title
+                "+", // segregator
+                "New Project Added by ",
+                addressToString(msg.sender),
+                ". Total Projects in the Platform: ",
+                Strings.toString(projectNum) // notification body
+            )
+        )
+    )
+);
+
         // epns project created
     }
 
@@ -72,6 +94,30 @@ mapping(address => uint256[]) public investorIDtoInvestedProjects;
         investorIDtoInvestedProjects[msg.sender].push(projectID);
         IERC20(USDT_CONTRACT_ADDRESS).safeTransferFrom(msg.sender, address(this), amount);
 
+        IPUSHCommInterface(EPNS_COMM_ADDRESS).sendNotification(
+    0xd35323d229318e6dCfFE4359d863b2f5453DF965, // from channel - recommended to set channel via dApp and put it's value -> then once contract is deployed, go back and add the contract address as delegate for your channel
+    address(this), // to recipient, put address(this) in case you want Broadcast or Subset. For Targetted put the address to which you want to send
+    bytes(
+        string(
+            // We are passing identity here: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+            abi.encodePacked(
+                "0", // this is notification identity: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+                "+", // segregator
+                "1", // this is payload type: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/payload (1, 3 or 4) = (Broadcast, targetted or subset)
+                "+", // segregator
+                "New Project Added", // this is notificaiton title
+                "+", // segregator
+                "New Investor: ",
+                addressToString(msg.sender),
+                ". Invested: ",
+                Strings.toString(amount),
+                " Wei In the project with ID: ",
+                Strings.toString(projectID)
+                 // notification body
+            )
+        )
+    )
+);
         // epns invested in project
     }
 
@@ -109,6 +155,19 @@ mapping(address => uint256[]) public investorIDtoInvestedProjects;
 
     function togglePause() external onlyOwner {
         contractPaused = !contractPaused;
+    }
+
+    function addressToString(address _address) internal pure returns(string memory) {
+        bytes32 _bytes = bytes32(uint256(uint160(_address)));
+        bytes memory HEX = "0123456789abcdef";
+        bytes memory _string = new bytes(42);
+        _string[0] = '0';
+        _string[1] = 'x';
+        for(uint i = 0; i < 20; i++) {
+            _string[2+i*2] = HEX[uint8(_bytes[i + 12] >> 4)];
+            _string[3+i*2] = HEX[uint8(_bytes[i + 12] & 0x0f)];
+        }
+        return string(_string);
     }
 
     receive() external payable {}
