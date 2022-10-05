@@ -6,8 +6,7 @@ const uauth = new UAuth({
     clientID: "e2c88390-e1ca-4c61-9fc3-e3406e7ab79e",
     redirectUri: "https://www.decademia.org/",
     scope: "openid wallet"
-  
-  })
+})
 
 function UDomain() {
     const [Uauth, setUauth] = useState()

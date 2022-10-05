@@ -9,7 +9,8 @@ import ResearchProjs from './ResearchProjs';
 import { useState } from 'react';
 import logo from "../public/assets/decademia.png"
 import Image from 'next/image';
-import Link from 'next/link'
+import DISLogo from "../discord.png"
+
 
 const Projects = () => {
     const [prjectData, setProjectData] = useState();
@@ -19,15 +20,15 @@ const Projects = () => {
       <div className=''>
         <h2>.</h2>
       </div>
-      <div className=' mx-auto  flex justify-center items-center'>
-       
-          <Image src={logo}></Image>
-        
-
+      <div className='  relative bottom-20 '>
+        <div className='relative top-20 flex justify-center items-center'>
+          <Image src={logo} height="400" width="400"></Image>
+          </div>
       </div>
-      <div className='relative mx-auto mt-8 flex justify-center p-6 items-center'>
+     
+      <div className='  flex justify-center relative bottom-20 items-center'>
         <a href="https://discord.gg/e8hTg4d9Fc">
-        <button className='p-3'> Join Our Community</button>
+          <Image src={DISLogo} className="" />
         </a>
       </div>
       <div className='mx-auto  flex justify-center items-center'>
@@ -107,10 +108,10 @@ const Projects = () => {
             backgroundImg={proj2}
             stage="Research"
             projDesc="Mental Health
-Inflammation
-Neuroscience/Neurology
-Regenerative medicine
-Ageing "
+            Inflammation
+            Neuroscience/Neurology
+            Regenerative medicine
+            Ageing "
             fundedAmt="$25,000"
             fundedBy="Amount Request"
           />

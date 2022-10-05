@@ -70,15 +70,18 @@ const Navbar = ({CreateProject, }) => {
           <ul style={{ color: `${linkColor}` }} className='justify-start grid-cols-3 hidden md:flex'>
 
             <Link href='/'>
+               
               <li className='ml-10 text-xl text-gray-900 uppercase hover:border-b'>Discover</li>
             </Link>
             <Link  href='/createProject'>
               <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Create Project</li>
             </Link>
             
-            <Link  href='/createProject'>
+
+              <a href="https://medium.com/@decademia.info/list/f1bcd4d225f3">
               <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Documentation </li>
-            </Link>
+              </a>
+
           </ul>
           </div>
 
