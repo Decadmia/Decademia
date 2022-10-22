@@ -12,9 +12,8 @@ export default function Home() {
       <Head>
         <title>Decademia</title>
         <meta name="description" content="Invest in biopharma researchers and their work" />
-        <link rel="icon" href="../public/assets/declogo.png" />
+        <link rel="icon" href="../public/assets/declogo.svg" />
       </Head>
-
 
     <Projects />
     <Faq />

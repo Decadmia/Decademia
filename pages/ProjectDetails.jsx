@@ -8,7 +8,8 @@ import { Web3Storage} from 'web3.storage'
 const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt, fundedBy }) => {
     const [projectDetails, setProjectDetails] = useState({
         name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
-        country: " ", image: " "
+        country: " ", image: " ", background: " ", project_Details: " ", market_opportunity: " ",
+    
     });
     const [walletAddress, setWalletAddress] = useState(null);
     useEffect(() => {
@@ -54,18 +55,15 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
                         Background
                     </h2>
                     <p className='text-slate-600 mt-2 text-xl mb-4'> Problem</p>
-                    <p className='text-xl mt-2 mb-4 text-slate-400 w-2/3 tracking-wide '>Lysosomal dysfunction is an important factor contributing to the reduction of autophagy during aging. As dysfunctional lysosomes interfere with autophagy at the terminal stage, stimulation of autophagy initiation can be ineffective to rescue autophagy. Additionally, current methods to measure autophagy are rather unreliable, slow, and with complicated readouts, making the screening of compounds that promote autophagy less efficient.</p>
+                    <p className='text-xl mt-2 mb-4 text-slate-400 w-2/3 tracking-wide '>{}</p>
 
                     <p className='text-slate-600 mt-2 text-xl mb-4'>Opportunity</p>
-                    <p className='text-xl mt-2 mb-4 text-slate-400 w-2/3 tracking-wide '>Lysosomal dysfunction is an important factor contributing to the reduction of autophagy during aging. As dysfunctional lysosomes interfere with autophagy at the terminal stage, stimulation of autophagy initiation can be ineffective to rescue autophagy. Additionally, current methods to measure autophagy are rather unreliable, slow, and with complicated readouts, making the screening of compounds that promote autophagy less efficient.</p>
-                    <p className='text-xl mt-1 mb-4 text-slate-400 w-2/3 tracking-wide '>Lysosomal dysfunction is an important factor contributing to the reduction of autophagy during aging. As dysfunctional lysosomes interfere with autophagy at the terminal stage, stimulation of autophagy initiation can be ineffective to rescue autophagy. </p>
+                    <p className='text-xl mt-2 mb-4 text-slate-400 w-2/3 tracking-wide '>{projectDetails.market_opportunity}</p>
 
                     <p className='text-slate-600 mt-2 text-xl mb-4'>Highlights</p>
                     <ul className='text-md mt-2 mb-2 text-slate-400 w-2/3 tracking-wide'>
-                        <li>-Assay with easy readout, decent throughput, good controls and targeting one of the most important processes in cellular aging (autophagy)</li>
-                        <li>-Assay with easy readout, decent throughput, good controls and targeting one of the most important processes in cellular aging (autophagy)</li>
-                        <li>-Assay with easy readout, decent throughput, good controls and targeting one of the most important processes in cellular aging (autophagy)</li>
-                        <li>-Assay with easy readout, decent throughput, good controls and targeting one of the most important processes in cellular aging (autophagy)</li>
+                        <li> {projectDetails.background}</li>
+
                     </ul>
                 </div>
 
@@ -76,20 +74,10 @@ const ProjectDetails = ({ heading, title, type, researcher, projDesc, fundedAmt,
                 <h2 className='mb-4 text-3xl  text-slate-700'>Project details</h2>
 
                 <p className='w-2/3 mb-2 text-slate-500'>
-                    Extensive work leading to this proposal identified a unique phenotype of cells with dysfunctional autophagy in tissue culture (Autophagy promotes cell survival by maintaining NAD(H) levels | Research Square, https://www.biorxiv.org/content/10.1101/2020.01.31.928424v1, under revision for Nat Cell Biol). In normal glucose-containing medium autophagy KOs upregulate glycolysis at the expense of mitochondrial respiration. When glucose is replaced with galactose, which results in zero net ATP production through glycolysis and cells are forced to respire, autophagy deficient cells become apoptotic. This phenotype is common for Npc1 KO MEFs where autophagosome maturation is impaired as well as for cells with the loss of core autophagy genes (Atg5, Atg7 and FIP200/Rb1cc1).
+                    {projectDetails.project_Details}
                 </p>
 
-                <p className='w-2/3 mb-2 text-slate-500'>
-                    Extensive work leading to this proposal identified a unique phenotype of cells with dysfunctional autophagy in tissue culture (Autophagy promotes cell survival by maintaining NAD(H) levels | Research Square, https://www.biorxiv.org/content/10.1101/2020.01.31.928424v1, under revision for Nat Cell Biol). In normal glucose-containing medium autophagy KOs upregulate glycolysis at the expense of mitochondrial respiration. When glucose is replaced with galactose, which results in zero net ATP production through glycolysis and cells are forced to respire, autophagy deficient cells become apoptotic. This phenotype is common for Npc1 KO MEFs where autophagosome maturation is impaired as well as for cells with the loss of core autophagy genes (Atg5, Atg7 and FIP200/Rb1cc1).
-                </p>
-
-                <p className='w-2/3 mb-2 text-slate-500'>
-                    Extensive work leading to this proposal identified a unique phenotype of cells with dysfunctional autophagy in tissue culture (Autophagy promotes cell survival by maintaining NAD(H) levels | Research Square, https://www.biorxiv.org/content/10.1101/2020.01.31.928424v1, under revision for Nat Cell Biol). In normal glucose-containing medium autophagy KOs upregulate glycolysis at the expense of mitochondrial respiration. When glucose is replaced with galactose, which results in zero net ATP production through glycolysis and cells are forced to respire, autophagy deficient cells become apoptotic. This phenotype is common for Npc1 KO MEFs where autophagosome maturation is impaired as well as for cells with the loss of core autophagy genes (Atg5, Atg7 and FIP200/Rb1cc1).
-                </p>
-
-                <p className='w-2/3 mb-2 text-slate-500 '>
-                    Extensive work leading to this proposal identified a unique phenotype of cells with dysfunctional autophagy in tissue culture (Autophagy promotes cell survival by maintaining NAD(H) levels | Research Square, https://www.biorxiv.org/content/10.1101/2020.01.31.928424v1, under revision for Nat Cell Biol). In normal glucose-containing medium autophagy KOs upregulate glycolysis at the expense of mitochondrial respiration. When glucose is replaced with galactose, which results in zero net ATP production through glycolysis and cells are forced to respire, autophagy deficient cells become apoptotic. This phenotype is common for Npc1 KO MEFs where autophagosome maturation is impaired as well as for cells with the loss of core autophagy genes (Atg5, Atg7 and FIP200/Rb1cc1).
-                </p>
+            
 
             </div>
             <button className='w-2/5 mt-2 mb-5 p-2 bg-gradient-to-r from-[#a200d6] to-[#467df3]' onClick={onButtonClick}> Contribute </button>

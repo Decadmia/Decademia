@@ -1,10 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import ResearchData from "../components/researchData"
 import { Web3Storage } from 'web3.storage'
 import Nftmint from "../components/Nftmint"
 import { useRef } from 'react';
+import Dropdown from './Dropdown';
+import { Avatar, Grid } from "@nextui-org/react";
+
+
 
 var projecDetailsValues = {}
 
@@ -16,6 +20,10 @@ function CreateProject() {
     const [userName, setUserName] = useState("");
     const [description, setDescription] = useState("");
     const [imgUrl, setimgUrl] = useState("");
+    const [selected, setSelected] = useState(new Set(["Text"]));
+
+    const selectedValue = useMemo(() => Array.from(selected).join(", ").replaceAll("_", " "),
+        [selected]);
 
     const handleInputChange = (e) => {
         const val = e.target.value;
@@ -77,9 +85,16 @@ function CreateProject() {
 
     const [projectDetails, setprojectDetails] = useState({
         name: " ", summary: " ", clinicalStage: " ", therapeuticArea: " ", patientStatus: " ",
-        country: " ", image: " "
+        country: " ", image: " ", background: " ", project_Details: " ", market_opportunity: " ",
+        phone: " ", Status: [], projectTitle: " ", step: " ", fund: " ", duration: " ", name : " ",
+        firstName : " ", lastName : " "
     });
     let name, value;
+
+    const handleStatus = async (values) => {
+        setprojectDetails({ ...projectDetails, Status: values.map((el) => el.input) });
+        projecDetailsValues = { ...projectDetails, Status: values.map((el) => el.input) };
+    }
 
     const handleInputs = async (e) => {
         e.preventDefault();
@@ -120,18 +135,24 @@ function CreateProject() {
             <div className='grid grid-flow-col-1 '>
 
                 <div className=' absolute left-10 mt-20 right-5 m-auto pl-20 flex flex-col w-2/3  rounded-md decoration'>
-                    <di className="absolute right-10 mb-2 ">
-                        <Link href='/ProjectsubFaq'>
-                            <button className='bg-purple-800 p-2 top-2 m-2'> Go to Submission FAQ's</button>
-                        </Link>
-                    </di>
+                    <Link href='/ProjectsubFaq'>
+                        <di className="absolute right-10 mb-2 pointer">
+
+                            <button className='bg-blue-400 p-2 top-2 m-2'> Go to Submission FAQ's</button>
+
+                        </di>
+                    </Link>
                     <h2 className='relative mb-3 hover:underline'>Create a new Project </h2>
 
                     <div className='mt-5 col-span-2 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='relative flex flex-col'>
                             <h2 className='text-2xl text-slate-400 text-center font-thin'> <span className=' relative top-2 text-centre justify-center'> **</span>  This information is used to give investiors the brief overview of your project <span className='relative top-2 text-centre justify-center'> **</span> </h2>
                         </div>
-                        <h2 className='mb-4 mt-10'> Basic Information </h2>
+
+                        <div>
+                            <h2 className='text-4xl mb-4 mt-10'> Basic Information </h2>
+                        </div>
+
                         <div className='p-4'>
                             <form id='researchData'>
 
@@ -217,23 +238,227 @@ function CreateProject() {
                                         autoComplete="off"
                                     />
                                 </div>
+
+
+                                <div>
+                                    <h2 className='text-4xl mt-10'>Detailed Discription </h2>
+                                </div>
                                 <div className='flex flex-col py-2'>
-                                    <label htmlFor='image' className='uppercase  text-slate-400 text-md py-2'>Choose a file </label>
+                                    <label className='uppercase  text-slate-400 text-md py-2'> Background * </label>
+                                    <p className=' text-slate-400 text-sm py-2' >Brief background for your project. URLs are hyperlinked.</p>
+                                    <textarea
+                                        className='border-2 rounded-lg p-3 border-gray-300'
+                                        rows='8'
+                                        id='background'
+                                        name='background'
+                                        value={projectDetails.background}
+                                        onChange={handleInputs}
+                                        autoComplete="off"
+                                    ></textarea>
+                                </div>
+
+                                <div className='flex flex-col py-2'>
+                                    <label className='uppercase  text-slate-400 text-md py-2'> Project Details * </label>
+                                    <p className=' text-slate-400 text-sm py-2' >Brief project details summary for your project. URLs are hyperlinked.</p>
+                                    <textarea
+                                        className='border-2 rounded-lg p-3 border-gray-300'
+                                        rows='8'
+                                        id='project_Details'
+                                        name='project_Details'
+                                        value={projectDetails.project_Details}
+                                        onChange={handleInputs}
+                                        autoComplete="off"
+                                    ></textarea>
+                                </div>
+
+                                <div className='flex flex-col py-2'>
+                                    <label className='uppercase  text-slate-400 text-md py-2'> Market Opportunity * </label>
+                                    <p className=' text-slate-400 text-sm py-2' >Overview of the market opportunity for your project. URLs are hyperlinked.</p>
+                                    <textarea
+                                        className='border-2 rounded-lg p-3 border-gray-300'
+                                        rows='8'
+                                        id='market_opportunity'
+                                        name='market_opportunity'
+                                        value={projectDetails.market_opportunity}
+                                        onChange={handleInputs}
+                                        autoComplete="off"
+                                    ></textarea>
+                                </div>
+
+                                <div className='flex flex-col py-2'>
+                                    <label className='uppercase  text-slate-400 text-md py-2'>Phone *</label>
                                     <input
                                         className='border-2 rounded-lg p-3  text-slate-400 flex border-gray-300'
-                                        type='file'
-                                        name='image'
-                                        id='image'                 
+                                        type='phone'
+                                        name='phone'
+                                        id='phone'
+                                        value={projectDetails.phone}
+                                        placeholder='Please select one'
+                                        onChange={handleInputs}
                                         autoComplete="off"
-                                        ref={inputRef}
                                     />
+                                </div>
 
-                                    <button className='mt-2 bg-gradient-to-r from-[#a200d6] to-[#709dff]'> Mint it as NFT</button>
+                                <div>
+                                    <h2 className='text-4xl mt-10'>Project Timeline </h2>
+                                </div>
+
+                                <div className='flex flex-col py-2 w-full'>
+                                    <div className='mt-2 mb-2'>
+                                        <label className=' text-slate-400 text-md py-2'>Title *</label>
+                                        <input
+                                            className='border-2 rounded-lg p-3 w-full text-slate-400 flex border-gray-300'
+                                            type='text'
+                                            name='projectTitle'
+                                            id='projectTitle'
+                                            value={projectDetails.projectTitle}
+                                            onChange={handleInputs}
+                                            autoComplete="off"
+                                        />
+                                    </div>
+
+                                    <div className='grid grid-cols-2 gap-3'>
+                                        <div className='mt-2 mb-2'>
+                                            <label className=' text-slate-400 text-md py-2'>Step *</label>
+                                            <input
+                                                className='border-2 rounded-lg p-3  w-full text-slate-400 flex border-gray-300'
+                                                type="number"
+                                                name="step"
+                                                id="step"
+                                                value={projectDetails.step}
+                                                onChange={handleInputs}
+                                            />
+                                        </div>
+                                        <div className='mt-2 mb-2'>
+                                            <label className=' text-slate-400 text-md py-2'> Funding Required (USD) *</label>
+                                            <input
+                                                className='border-2 rounded-lg p-3  w-full text-slate-400 flex border-gray-300'
+                                                type="number"
+                                                name="fund"
+                                                id="fund"
+                                                value={projectDetails.fund}
+                                                onChange={handleInputs}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className='grid grid-cols-2 gap-3'>
+                                        <div className='mt-2 mb-2'>
+                                            <label className=' text-slate-400 text-md py-2'>Status *</label>
+
+                                            <Dropdown className="bg-white p-3 decoration-none" onStatus={handleStatus}
+                                                name="status" id="status" value={projectDetails.Status} onChange={handleInputs}
+                                            />
+
+                                        </div>
+                                        <div className='mt-2 mb-2'>
+                                            <label className=' text-slate-400 text-md py-2'> Duration Month *</label>
+                                            <input
+                                                className='border-2 rounded-lg p-3  w-full text-slate-400 flex border-gray-300'
+                                                type="number"
+                                                name="duration"
+                                                id="duration"
+                                                value={projectDetails.duration}
+                                                onChange={handleInputs} />
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col py-2'>
+                                        <label className='text-slate-400 text-md py-2'> Description *</label>
+                                        <p className=' text-slate-400 text-sm py-2' >
+                                            Brief summary for your project. URLs are hyperlinked.</p>
+                                        <textarea
+                                            className='border-2 rounded-lg p-3 border-gray-300'
+                                            rows='5'
+                                            id='market_opportunity'
+                                            name='market_opportunity'
+                                            value={projectDetails.market_opportunity}
+                                            onChange={handleInputs}
+                                            autoComplete="off"
+                                        ></textarea>
+                                    </div>
+
+                                    <div className='mt-2'>
+                                        <h2>Project Team</h2>
+                                    </div>
+
+                                    <div className='grid grid-col-2'>
+                                        <div className='mt-3 mb-2'>
+                                            <Grid>
+                                                <Avatar
+                                                    text="Img"
+                                                    css={{ size: "$20" }}
+                                                />
+                                            </Grid>
+                                        </div>
+
+                                        <div className='grid  grid-col-2'>
+                                            <label htmlFor="" className='text-xl mb-2 mt-2'> Profile Picture </label>
+                                            <span className='flex text-sm mb-2 text-gray-400'> JPG, GIF or PNG. Max size of 800k</span>
+                                            <input type="file"
+                                             name="profilePic" id="profilePic"
+                                             className='mt-2 mb-2' />
+
+                                            <div className='grid grid-cols-2 gap-3'>
+                                                <div className='mt-2 mb-2'>
+                                                    <label className=' text-slate-400 text-md py-2'>First Name *</label>
+                                                    <input
+                                                        className='border-2 rounded-lg p-3 mt-2 w-full text-slate-400 flex border-gray-300'
+                                                        type="text"
+                                                        name="firstName"
+                                                        id="firstName"
+                                                        value={projectDetails.firstName}
+                                                        onChange={handleInputs} />
+                                                </div>
+                                                <div className='mt-2 mb-2'>
+                                                    <label className=' text-slate-400 text-md py-2'> Last Name *</label>
+                                                    <input
+                                                        className='border-2 rounded-lg p-3 mt-2 w-full text-slate-400 flex border-gray-300'
+                                                        type="text"
+                                                        name="lastName"
+                                                        id="lastName"
+                                                        value={projectDetails.lastName}
+                                                        onChange={handleInputs}
+                                                         />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
 
+                                <div className='mt-3'>
+                                    <h2>Research Institution </h2>
+                                </div>
 
-                                <button className='bg-gradient-to-r from-[#a200d6] to-[#709dff]  rounded-full p-4 text-gray-900 mt-4' type="submit" onClick={callbackFunction}>
+                                <div>
+                                    <div className='mt-3 mb-2'>
+                                        <Grid >
+                                            <Avatar
+                                                text="Img"
+                                                css={{ size: "$20" }}
+                                            />
+                                        </Grid>
+                                    </div>
+                                    <div className='mt-2 mb-2'>
+                                        <label htmlFor="" className='text-xl mb-2 mt-2 ml-4'> Logo </label>
+                                        <span className='flex text-sm mb-2 text-gray-400'> JPG, GIF or PNG. Max size of 800k</span>
+                                        <input type="file" name="profilePic" id="profilePic" className='mt-2 mb-2' />
+                                        <div>
+
+                                            <label className=' text-slate-400 text-md py-2'> Name *</label>
+                                            <input
+                                                className='border-2 rounded-lg p-3 mt-2 w-full text-slate-400 flex border-gray-300'
+                                                type="text"
+                                                name="Name"
+                                                id="Name"
+                                                value={projectDetails.name}
+                                                onChange={handleInputs} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button className='bg-blue-400 rounded-full p-4 text-gray-900 mt-4' type="submit" onClick={callbackFunction}>
                                     save & continue
                                 </button>
                             </form>
@@ -241,7 +466,7 @@ function CreateProject() {
 
                         </div>
                         <Link href="/">
-                            <p className="relative left-3 rounded-full mt-4 cursor-pointer text-xl text-center justify-center bg-purple-200 w-24">Back</p>
+                            <p className="relative left-3 rounded-full mt-4 cursor-pointer text-xl text-center justify-center bg-green-200 w-24">Back</p>
                         </Link>
                     </div>
                 </div>
