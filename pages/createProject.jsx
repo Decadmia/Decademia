@@ -7,6 +7,7 @@ import Nftmint from "../components/Nftmint"
 import { useRef } from 'react';
 import Dropdown from './Dropdown';
 import { Avatar, Grid } from "@nextui-org/react";
+import Submissionfaq from '../components/SubmissionFaq/Submissionfaq';
 
 
 
@@ -131,17 +132,20 @@ function CreateProject() {
 
 
     return (
+        <>
+
+        
         <div>
             <div className='grid grid-flow-col-1 '>
 
                 <div className=' absolute left-10 mt-20 right-5 m-auto pl-20 flex flex-col w-2/3  rounded-md decoration'>
-                    <Link href='/ProjectsubFaq'>
+                    {/* <Link href='/ProjectsubFaq'>
                         <di className="absolute right-10 mb-2 pointer">
 
                             <button className='bg-blue-400 p-2 top-2 m-2'> Go to Submission FAQ's</button>
 
                         </di>
-                    </Link>
+                    </Link> */}
                     <h2 className='relative mb-3 hover:underline'>Create a new Project </h2>
 
                     <div className='mt-5 col-span-2 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
@@ -475,6 +479,11 @@ function CreateProject() {
 
 
         </div>
+
+        <div>
+                {/* <Submissionfaq /> */}
+        </div>
+        </>
     )
 }
 

@@ -13,7 +13,7 @@ import DISLogo from "../discord.png"
 
 
 const Projects = () => {
-    const [prjectData, setProjectData] = useState();
+  const [prjectData, setProjectData] = useState();
     
   return (
     <div id='projects' className='w-full'>
@@ -208,8 +208,6 @@ const Projects = () => {
               nationality="KORIA"
               fundedAmt="$ 23,890"
             />
-
-
           </div>
         </div>
       </div>
@@ -218,8 +216,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-
-
-
-

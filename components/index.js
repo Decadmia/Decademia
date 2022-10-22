@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Projects from '../components/Projects'
-import Faq from './Faq'
+import FAQ from './Faq'
 
 
 
@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/fav.png" />
       </Head>
       <Projects />
-      <Faq />
+      <FAQ />
 
     </div>
   )

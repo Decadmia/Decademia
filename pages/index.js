@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Faq from "../components/Faq"
-
+import Faq from "../components/faq/faq"
 import Projects from '../components/Projects'
+
 
 
 
@@ -17,7 +17,7 @@ export default function Home() {
 
     <Projects />
     <Faq />
-
+     
 
     </div>
   )
