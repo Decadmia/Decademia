@@ -20,13 +20,13 @@ const Projects = () => {
       <div className=''>
         <h2>.</h2>
       </div>
-      <div className='  relative bottom-20 '>
+      <div className='relative bottom-20 '>
         <div className='relative top-20 flex justify-center items-center'>
           <Image src={logo} height="400" width="400"></Image>
           </div>
       </div>
      
-      <div className='  flex justify-center relative bottom-20 items-center'>
+      <div className='flex justify-center relative bottom-20 items-center'>
         <a href="https://discord.gg/e8hTg4d9Fc">
           <Image src={DISLogo} className="" />
         </a>
