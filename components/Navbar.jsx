@@ -16,7 +16,8 @@ const Navbar = ({CreateProject, }) => {
 
   useEffect(() => {
     if (
-      router.asPath === '/createProject' 
+      router.asPath === '/createProject',
+       router.asPath === '/faqSection' 
     ) {
       setNavBg('#ecf0f3');
       setLinkColor('#ecf0f3');
@@ -56,15 +57,15 @@ const Navbar = ({CreateProject, }) => {
       style={{ backgroundColor: `${navBg}` }}
       className={
         shadow
-          ? "fixed w-full h-20 shadow-xl z-[100]"
-          : "fixed w-full h-20 z-[100]"
+          ? "fixed w-full h-20  shadow-xl z-[100]"
+          : "fixed w-full h-20  z-[100]"
       }
     >
       <div className='  items-center'>
        
         <div className='absolute   mx-10  items-center uppercase  w-full  '>
          
-          <div className='relative top-6     mx-10  items-center uppercase  w-full '>
+          <div className='relative top-6  mx-10  items-center uppercase  w-full '>
           
           
           <ul style={{ color: `${linkColor}` }} className='justify-start grid-cols-3 hidden md:flex'>
@@ -81,6 +82,10 @@ const Navbar = ({CreateProject, }) => {
               <a href="https://medium.com/@decademia.info/list/f1bcd4d225f3">
               <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>Documentation </li>
               </a>
+
+              <Link href='/faqSection'>
+                <li className='ml-10 text-xl  text-gray-900 uppercase hover:border-b '>FAQ's</li>
+              </Link>
 
           </ul>
           </div>
