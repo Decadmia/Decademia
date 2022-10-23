@@ -8,9 +8,9 @@ const Submissionfaq = () => {
     const [data, setData] = useState(questions);
 
     return (
-        <div>
+        <div className='mt-10'>
             <section className='relative mt-2 justify-start '>
-                <h1 className='text-4xl mb-16 text-center'>Project submission FAQ's?</h1>
+                <h1 className='text-4xl mb-10 text-center'>Project submission FAQ's?</h1>
                 {
                     data.map((currElem) => {
                         const { id } = currElem;

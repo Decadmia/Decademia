@@ -10,7 +10,7 @@ const faq = () => {
   return (
     <div>
           <section className='relative mt-2 justify-start items-center'>
-        <h1 className='text-4xl mb-16 text-center'>Frequently Asked Questions </h1>
+        <h1 className='text-4xl mb-10 text-center'>Frequently Asked Questions </h1>
         {    
             data.map((currElem)=> {
                 const  {id} = currElem;
